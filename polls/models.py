@@ -11,6 +11,9 @@ class Poll(models.Model):
 
     def was_published_recently(self):
         return self.pub_date >= timezone.now() - datetime.timedelta(days=1)
+    
+    def __str__(self):
+        return self.__unicode__();
 
 
 class Choice(models.Model):
@@ -20,3 +23,6 @@ class Choice(models.Model):
  
     def __unicode__(self):
         return self.choice_text
+    
+    def __str__(self):
+        return self.__unicode__();
